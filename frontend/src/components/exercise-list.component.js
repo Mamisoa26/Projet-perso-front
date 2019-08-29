@@ -47,8 +47,8 @@ export default class ExercisesList extends Component {
     render() {
         return (
             <div>
-                <h1>Liste des Exercises</h1>
-                <p>You are on the exercises list component</p>
+                <h1>Liste de personnes</h1>
+                
                 <table>
                     <thead>
                         <tr>
