@@ -55,7 +55,7 @@ export default class EditExercises extends Component {
             duration: this.state.duration,
             date: this.state.date
         }
-        axios.post(`http://localhost:5000/exercises/update/${this.props.match.params.id}`, exercise)
+        axios.put(`http://localhost:5000/exercises/update/${this.props.match.params.id}`, exercise)
             .then(res => console.log())
     }
     
@@ -65,7 +65,7 @@ export default class EditExercises extends Component {
             <div>
                 <h3>Modifier un exercices</h3>
                 <p>You are on the edit exercises component</p>
-                <form onSubmit={this.onSubmit}>
+                <form onSubmit={()=>{this.onSubmit()}}>
                     <div>
                         <label>Nom</label>
                         <select ref="userInput" required value={this.state.username} onChange={this.onChangeUserName}>

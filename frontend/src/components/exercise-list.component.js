@@ -10,7 +10,8 @@ const Exercise = props => (
         <td>{props.exercise.duration}</td>
         <td>{props.exercise.date.substring(0, 10)}</td>
         <td>
-            <Link to={`/edit/${props.exercise._id}`}>edit</Link> | <a href="#" onClick={() => {props.deleteExercise(props.exercise._id)}}>delete</a>
+            <Link to={`/update/${props.exercise._id}`}>edit</Link> | 
+            <a href="#" onClick={() => {props.deleteExercise(props.exercise._id)}}>delete</a>
         </td>
     </tr>
 )
@@ -25,9 +26,9 @@ export default class ExercisesList extends Component {
     componentDidMount() {
         axios.get('http://localhost:5000/exercises/')
             .then((result) => {
-                this.setState(() => ({
+                this.setState({
                     exercises: result.data
-                }))
+                })
             }).catch((err) => {
                 console.log(err);
             });
@@ -60,7 +61,16 @@ export default class ExercisesList extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.exerciseList()}
+                    {this.state.exercises.map((exo, _id) =>(
+                        <tr key='_id'>
+                            <td>{exo.username}</td>
+                            <td>{exo.description}</td>
+                            <td>{exo.duration}</td>
+                            <td>{exo.date}</td>
+                            <td><Link to={`/edit/${exo._id}`}>edit</Link> | 
+                            <button onClick={() => {this.deleteExercise(exo._id)}}>delete</button></td>
+                        </tr>
+                    ))}
                     </tbody>
                 </table>
             </div>
