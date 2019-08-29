@@ -9,7 +9,7 @@ export default class EditExercises extends Component {
         this.state = {
             username: '',
             description: '',
-            duration: 0,
+            duration: '',
             date: new Date(),
             users: []
         }
@@ -56,14 +56,14 @@ export default class EditExercises extends Component {
             date: this.state.date
         }
         axios.put(`http://localhost:5000/exercises/update/${this.props.match.params.id}`, exercise)
-            .then(res => console.log())
+            .then(res => console.log('tafiditra'))
     }
     
     render() {
         const dateFormat = 'YYYY/MM/DD';
         return (
             <div>
-                <h3>Modifier un exercices</h3>
+                <h3>Modifier un Document</h3>
                 <form onSubmit={()=>{this.onSubmit()}}>
                     <div>
                         <label>Nom</label>
@@ -85,7 +85,7 @@ export default class EditExercises extends Component {
                     </div>
                     <div>
                         <label>Date:</label>
-                        <DatePicker defaultValue={moment('2015/01/01', dateFormat)} format={dateFormat} onChange={this.onChange} />
+                        <DatePicker name="date" defaultValue={moment('2015/01/01', dateFormat)} format={dateFormat} onChange={this.onChange} />
                     </div>
                     <input type="submit" value="Edit Exercise" />
                 </form>
