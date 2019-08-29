@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { DatePicker} from "antd";
+import { DatePicker } from "antd";
 import moment from 'moment';
 import axios from "axios";
 
@@ -9,7 +9,7 @@ export default class CreateExercises extends Component {
         this.state = {
             username: '',
             description: '',
-            duration: 0,
+            duration: '',
             date: new Date(),
             users: []
         }
@@ -84,12 +84,12 @@ export default class CreateExercises extends Component {
                         <input type="text" name="description" required value={this.state.description} onChange={this.onChangeUserName} />
                     </div>
                     <div>
-                        <label>Duré de la retard  minutes</label>
+                        <label>Duré de la retard (in minutes)</label>
                         <input type="text" name="duration" value={this.state.duration} onChange={this.onChangeUserName} />
                     </div>
                     <div>
                         <label>Date:</label>
-                        <DatePicker defaultValue={moment('2015/01/01', dateFormat)} format={dateFormat} onChange={this.onChange} />
+                        <DatePicker name="date" defaultValue={moment('2015/01/01', dateFormat)} format={dateFormat} onChange={this.onChange} />
                     </div>
                     <div className="text-center">
                     <div className="text-center mb-3">
