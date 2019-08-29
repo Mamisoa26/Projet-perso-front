@@ -49,13 +49,12 @@ export default class ExercisesList extends Component {
         return (
             <div>
                 <h1>Liste de personnes</h1>
-                
                 <table>
                     <thead>
                         <tr>
                             <th>Nom</th>
                             <th>Description</th>
-                            <th>Duration</th>
+                            <th>Durée</th>
                             <th>Date</th>
                             <th>Actions</th>
                         </tr>

@@ -64,7 +64,6 @@ export default class EditExercises extends Component {
         return (
             <div>
                 <h3>Modifier un exercices</h3>
-                <p>You are on the edit exercises component</p>
                 <form onSubmit={()=>{this.onSubmit()}}>
                     <div>
                         <label>Nom</label>
@@ -81,7 +80,7 @@ export default class EditExercises extends Component {
                         <input type="text" name="description" required value={this.state.description} onChange={this.onChangeUserName} />
                     </div>
                     <div>
-                        <label>Duration (in minutes):</label>
+                        <label>Durée ( minutes):</label>
                         <input type="text" name="duration" value={this.state.duration} onChange={this.onChangeUserName} />
                     </div>
                     <div>

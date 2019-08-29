@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { DatePicker, Button } from "antd";
+import { DatePicker} from "antd";
 import moment from 'moment';
 import axios from "axios";
 
@@ -51,16 +51,16 @@ export default class CreateExercises extends Component {
             .then(res => console.log())
     }
 
-    componentDidMount() {
-        axios.get('http://localhost:5000/exercises/')
-            .then((result) => {
-                this.setState({
-                    exercises: result.data
-                })
-            }).catch((err) => {
-                console.log(err);
-            });
-    }
+    // componentDidMount() {
+    //     axios.get('http://localhost:5000/exercises/')
+    //         .then((result) => {
+    //             this.setState({
+    //                 exercises: result.data
+    //             })
+    //         }).catch((err) => {
+    //             console.log(err);
+    //         });
+    // }
     
     render() {
         const dateFormat = 'YYYY/MM/DD';
@@ -84,7 +84,7 @@ export default class CreateExercises extends Component {
                         <input type="text" name="description" required value={this.state.description} onChange={this.onChangeUserName} />
                     </div>
                     <div>
-                        <label>Duré de la retard (in minutes):</label>
+                        <label>Duré de la retard  minutes</label>
                         <input type="text" name="duration" value={this.state.duration} onChange={this.onChangeUserName} />
                     </div>
                     <div>
