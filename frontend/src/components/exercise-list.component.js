@@ -10,8 +10,8 @@ const Exercise = props => (
         <td>{props.exercise.duration}</td>
         <td>{props.exercise.date.substring(0, 10)}</td>
         <td>
-            <Link to={`/update/${props.exercise._id}`}>edit</Link> | 
-            <a href="#" onClick={() => {props.deleteExercise(props.exercise._id)}}>delete</a>
+            
+            
         </td>
     </tr>
 )
@@ -67,8 +67,8 @@ export default class ExercisesList extends Component {
                             <td>{exo.description}</td>
                             <td>{exo.duration}</td>
                             <td>{exo.date}</td>
-                            <td><Link to={`/edit/${exo._id}`}>edit</Link> | 
-                            <button onClick={() => {this.deleteExercise(exo._id)}}>delete</button></td>
+                            <td><Link to={`/edit/:id`} className="btn btn-primary">edit</Link> | 
+                            <button className='btn btn-danger' onClick={() => {this.deleteExercise(exo._id)}}>delete</button></td>
                         </tr>
                     ))}
                     </tbody>
