@@ -34,13 +34,12 @@ export default class CreateUsers extends Component {
         return (
             <div>
                 <h3>Créer un Utilisateur</h3>
-                <p>You are on the create Users component</p>
                 <form onSubmit={this.onSubmit}>
                     <div>
                         <label>Votre nom</label>
                         <input type="text" required value={this.state.user} onChange={this.onChange} />
                     </div>
-                    <input type="submit" valule="Create User" />
+                    <input type="submit" value="Create User" />
                 </form>
             </div>
         )

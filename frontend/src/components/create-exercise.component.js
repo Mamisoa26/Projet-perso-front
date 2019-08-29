@@ -13,6 +13,7 @@ export default class CreateExercises extends Component {
             date: new Date(),
             users: []
         }
+        this.onChange = this.onChange.bind(this)
     }
 
     componentDidMount() {
@@ -48,6 +49,17 @@ export default class CreateExercises extends Component {
         }
         axios.post('http://localhost:5000/exercises/add', exercise)
             .then(res => console.log())
+    }
+
+    componentDidMount() {
+        axios.get('http://localhost:5000/exercises/')
+            .then((result) => {
+                this.setState({
+                    exercises: result.data
+                })
+            }).catch((err) => {
+                console.log(err);
+            });
     }
     
     render() {
